@@ -306,6 +306,24 @@ public class TaskList {
         }
     }
 
+
+    public void printReminders() {
+        ArrayList<Task> reminderList = new ArrayList<Task>();
+        for (Task task : list) {
+            if (task.getType().matches("E")|task.getType().matches("D")){
+                reminderList.add(task);
+            };
+        }
+
+        int counter = 0;
+        if (reminderList.size() > 0){
+            System.out.println("Here are your reminders for upcoming tasks:");
+            for (Task task : list) {
+                System.out.println(counter++ + ". " + task.toList());
+            }
+        }
+    }
+
     /**
      * Selects a Task from an Event with Tentative Dates.
      *
